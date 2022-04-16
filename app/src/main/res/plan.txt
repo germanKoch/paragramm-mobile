@@ -1,0 +1,4 @@
+- troubles with migrations
+- add paging with caching in local database
+- add dependency injection dagger
+- create ok arhitecture

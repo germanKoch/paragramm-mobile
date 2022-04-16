@@ -1,4 +1,4 @@
-package com.paragramm.mobile_paragramm.activity.adapter
+package com.paragramm.mobile_paragramm.presentation.conversation.component.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.paragramm.mobile_paragramm.R
-import com.paragramm.mobile_paragramm.model.Conversation
+import com.paragramm.mobile_paragramm.data.model.Conversation
 
 class ConversationAdapter(private val mContext: Context,
                           private val resource: Int,

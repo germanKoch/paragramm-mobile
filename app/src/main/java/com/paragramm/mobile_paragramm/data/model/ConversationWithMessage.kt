@@ -1,4 +1,4 @@
-package com.paragramm.mobile_paragramm.model
+package com.paragramm.mobile_paragramm.data.model
 
 import androidx.room.*
 

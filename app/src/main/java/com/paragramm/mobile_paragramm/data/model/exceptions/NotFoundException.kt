@@ -1,4 +1,4 @@
-package com.paragramm.mobile_paragramm.model.exceptions
+package com.paragramm.mobile_paragramm.data.model.exceptions
 
 import java.lang.RuntimeException
 

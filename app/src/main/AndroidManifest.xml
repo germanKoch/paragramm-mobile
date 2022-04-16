@@ -11,7 +11,7 @@
         android:name=".ParagrammApplication"
         android:theme="@style/Theme.Mobileparagramm">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".presentation.conversation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Mobileparagramm.NoActionBar">
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ConversationActivity"/>
+        <activity android:name=".presentation.conversation_details.ConversationActivity"/>
 
     </application>
 

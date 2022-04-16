@@ -1,4 +1,4 @@
-package com.paragramm.mobile_paragramm.auth
+package com.paragramm.mobile_paragramm.domain.auth
 
 class UserDetails {
 
