@@ -20,157 +20,154 @@ class ConversationDetailsViewModel constructor(
         useCase.getById(conversationId, UserDetails.USER_ID)
 
 //    suspend fun insertData() {
+//        val data = mapOf(
+//            1L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "German Kochnev",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!"),
+//                    Message(1L, 1L, "Hello!")
+//                )
+//            ),
+//            2L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "Kseniia Tochenykh",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!"),
+//                    Message(2L, 1L, "Hello!")
+//                )
+//            ),
+//            3L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "Nekto Nektovich",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!"),
+//                    Message(3L, 1L, "Hello!")
+//                )
+//            ),
+//            4L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "Lala Topola",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!"),
+//                    Message(4L, 1L, "Hello!")
+//                )
+//            ),
+//            5L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "Otvolgi Doenisea",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!"),
+//                    Message(5L, 1L, "Hello!")
+//                )
+//            ),
+//            6L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "Bus' Busivich",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!"),
+//                    Message(6L, 1L, "Hello!")
+//                )
+//            ),
+//            7L to ConversationWithMessage(
+//                conversation = Conversation(
+//                    title = "Yopta Yoptovich",
+//                    picture = "picture",
+//                ),
+//                messages = listOf(
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!"),
+//                    Message(7L, 1L, "Hello!")
+//                )
+//            ),
+//        )
 //        data.forEach { (_, value) ->
 //            value.messages.forEach {
 //                useCase.save(it)
 //            }
 //        }
 //    }
-
-    companion object {
-        val data = mapOf(
-            1L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "German Kochnev",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!"),
-                    Message(1L, "German Kochnev", "Hello!")
-                )
-            ),
-            2L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "Kseniia Tochenykh",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!"),
-                    Message(2L, "German Kochnev", "Hello!")
-                )
-            ),
-            3L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "Nekto Nektovich",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!"),
-                    Message(3L, "German Kochnev", "Hello!")
-                )
-            ),
-            4L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "Lala Topola",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!"),
-                    Message(4L, "German Kochnev", "Hello!")
-                )
-            ),
-            5L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "Otvolgi Doenisea",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!"),
-                    Message(5L, "German Kochnev", "Hello!")
-                )
-            ),
-            6L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "Bus' Busivich",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!"),
-                    Message(6L, "German Kochnev", "Hello!")
-                )
-            ),
-            7L to ConversationWithMessage(
-                conversation = Conversation(
-                    title = "Yopta Yoptovich",
-                    picture = "picture",
-                ),
-                messages = listOf(
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!"),
-                    Message(7L, "German Kochnev", "Hello!")
-                )
-            ),
-        )
-    }
 
 }
 

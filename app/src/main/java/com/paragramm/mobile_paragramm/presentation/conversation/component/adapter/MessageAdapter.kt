@@ -15,7 +15,7 @@ class MessageAdapter(private val mContext: Context,
     ArrayAdapter<Message>(mContext, 0, messages) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val sender = getItem(position)?.sender
+        val sender = getItem(position)?.senderId
         val message = getItem(position)?.text
 
         val inflater = LayoutInflater.from(mContext)
@@ -25,7 +25,7 @@ class MessageAdapter(private val mContext: Context,
             text = message
         }
         view.findViewById<TextView>(R.id.message).apply {
-            text = sender
+            text = sender.toString()
         }
 
         return view

@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "message")
 data class Message(
     @ColumnInfo(name = "conversationId") val conversationId: Long,
-    @ColumnInfo(name = "sender") val sender: String?,
+    @ColumnInfo(name = "sender") val senderId: Long?,
     @ColumnInfo(name = "text") val text: String?
 ) {
     @PrimaryKey(autoGenerate = true)
