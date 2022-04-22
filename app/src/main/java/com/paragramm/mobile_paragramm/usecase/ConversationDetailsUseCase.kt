@@ -10,7 +10,7 @@ class ConversationDetailsUseCase {
 
     private val db = ParagrammDatabase.getDatabase(ParagrammApplication.context)
 
-    fun save(message: Message) {
+    suspend fun save(message: Message) {
         db.conversationDao().insertAll(message)
     }
 

@@ -1,4 +1,4 @@
-package com.paragramm.mobile_paragramm.presentation.conversation_details.component
+package com.paragramm.mobile_paragramm.presentation.conversation.component
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,15 +8,24 @@ import com.paragramm.mobile_paragramm.data.model.ConversationWithMessage
 import com.paragramm.mobile_paragramm.data.model.Message
 import com.paragramm.mobile_paragramm.domain.auth.UserDetails
 import com.paragramm.mobile_paragramm.usecase.ConversationDetailsUseCase
+import kotlinx.coroutines.runBlocking
 
 class ConversationDetailsViewModel constructor(
-    val conversationId: Long
+    conversationId: Long
 ) : ViewModel() {
 
     private val useCase: ConversationDetailsUseCase = ConversationDetailsUseCase()
 
     val _conversation: LiveData<ConversationWithMessage> =
         useCase.getById(conversationId, UserDetails.USER_ID)
+
+//    suspend fun insertData() {
+//        data.forEach { (_, value) ->
+//            value.messages.forEach {
+//                useCase.save(it)
+//            }
+//        }
+//    }
 
     companion object {
         val data = mapOf(

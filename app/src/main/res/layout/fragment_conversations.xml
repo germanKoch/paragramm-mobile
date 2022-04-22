@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.conversation_details.ConversationActivity">
+    tools:context=".presentation.fragments.ConversationsFragment">
 
     <ListView
-        android:id="@+id/messages"
+        android:id="@+id/conversations_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.conversation_details.ConversationActivity"/>
+        tools:context=".presentation.fragments.ConversationsFragment"/>
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.paragramm.mobile_paragramm.presentation.conversation_details.component.adapter
+package com.paragramm.mobile_paragramm.presentation.conversation.component.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

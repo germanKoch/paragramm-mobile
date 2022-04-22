@@ -1,4 +1,6 @@
 - troubles with migrations
+- add foreighn keys
 - add paging with caching in local database
 - add dependency injection dagger
 - create ok arhitecture
+- migrate to fragments

@@ -9,12 +9,19 @@ import com.paragramm.mobile_paragramm.domain.auth.UserDetails
 import com.paragramm.mobile_paragramm.usecase.ConversationsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class ConversationsViewModel : ViewModel() {
 
     private val useCase: ConversationsUseCase = ConversationsUseCase()
 
     val _conversations: LiveData<List<Conversation>> = useCase.getAll(UserDetails.USER_ID)
+
+//    suspend fun insertData() {
+//        data.forEach {
+//            useCase.save(it)
+//        }
+//    }
 
     companion object {
         val data = listOf(
