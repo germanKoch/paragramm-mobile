@@ -21,7 +21,7 @@ class MessageAdapter(private val mContext: Context,
         val inflater = LayoutInflater.from(mContext)
         val view = inflater.inflate(resource, parent, false)
 
-        view.findViewById<TextView>(R.id.sender).apply {
+        view.findViewById<TextView>(R.id.senderId).apply {
             text = message
         }
         view.findViewById<TextView>(R.id.message).apply {

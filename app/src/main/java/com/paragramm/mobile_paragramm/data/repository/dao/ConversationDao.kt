@@ -1,6 +1,7 @@
 package com.paragramm.mobile_paragramm.data.repository.dao
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -23,6 +24,9 @@ interface ConversationDao {
 
     @Query("SELECT * FROM conversation WHERE id=:id")
     fun getById(id: Long): LiveData<ConversationWithMessage>
+
+    @Query("SELECT * FROM message WHERE conversationId=:conversationId")
+    fun getMessagesPaged(conversationId: Long): PagingSource<Int, Message>
 
     @Delete
     fun delete(conversation: Conversation)

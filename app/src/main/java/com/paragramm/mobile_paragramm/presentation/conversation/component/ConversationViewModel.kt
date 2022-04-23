@@ -17,41 +17,47 @@ class ConversationsViewModel : ViewModel() {
 
     val _conversations: LiveData<List<Conversation>> = useCase.getAll(UserDetails.USER_ID)
 
-//    suspend fun insertData() {
-//        val data = listOf(
-//            Conversation(
-//                title = "German Kochnev",
-//                picture = "picture",
-//            ),
-//            Conversation(
-//                title = "Kseniia Tochenykhx",
-//                picture = "picture",
-//            ),
-//            Conversation(
-//                title = "Nekto Nektovich",
-//                picture = "picture",
-//            ),
-//            Conversation(
-//                title = "Lala Topola",
-//                picture = "picture",
-//            ),
-//            Conversation(
-//                title = "Otvolgi Doenisea",
-//                picture = "picture",
-//            ),
-//            Conversation(
-//                title = "Bus' Busivich",
-//                picture = "picture",
-//            ),
-//            Conversation(
-//                title = "Yopta Yoptovich",
-//                picture = "picture",
-//            ),
-//        )
-//        data.forEach {
-//            useCase.save(it)
-//        }
-//    }
+    init {
+        runBlocking {
+            insertData()
+        }
+    }
+
+    suspend fun insertData() {
+        val data = listOf(
+            Conversation(
+                title = "German Kochnev",
+                picture = "picture",
+            ),
+            Conversation(
+                title = "Kseniia Tochenykhx",
+                picture = "picture",
+            ),
+            Conversation(
+                title = "Nekto Nektovich",
+                picture = "picture",
+            ),
+            Conversation(
+                title = "Lala Topola",
+                picture = "picture",
+            ),
+            Conversation(
+                title = "Otvolgi Doenisea",
+                picture = "picture",
+            ),
+            Conversation(
+                title = "Bus' Busivich",
+                picture = "picture",
+            ),
+            Conversation(
+                title = "Yopta Yoptovich",
+                picture = "picture",
+            ),
+        )
+        data.forEach {
+            useCase.save(it)
+        }
+    }
 
 }
 

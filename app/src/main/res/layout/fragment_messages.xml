@@ -1,14 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".presentation.fragments.MessagesFragment">-->
+
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_messages"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.MessagesFragment">
+    android:scrollbars="vertical"
+    tools:context=".presentation.fragments.MessagesFragment" />
 
-    <ListView
-        android:id="@+id/messages"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.fragments.MessagesFragment"/>
+    <!--    <ListView-->
+    <!--        android:id="@+id/messages"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        tools:context=".presentation.fragments.MessagesFragment"/>-->
 
-</LinearLayout>
+    <!--</LinearLayout>-->

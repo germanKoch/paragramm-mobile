@@ -40,7 +40,7 @@ class ConversationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val data = mutableListOf<Conversation>()
-        val adapter = ConversationAdapter(activity!!.applicationContext, R.layout.adapter_conversation_layout, data)
+        val adapter = ConversationAdapter(activity!!.applicationContext, R.layout.conversation_layout, data)
         view.findViewById<ListView>(R.id.conversations_list).apply {
             this.adapter = adapter
             this.setOnItemClickListener { adapter, view, position, id ->

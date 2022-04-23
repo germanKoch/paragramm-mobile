@@ -1,6 +1,8 @@
 - troubles with migrations
 - add foreighn keys
+- migrate to rx
+- lifecycle extensions
 - add paging with caching in local database
 - add dependency injection dagger
 - create ok arhitecture
-- migrate to fragments
+- data binding

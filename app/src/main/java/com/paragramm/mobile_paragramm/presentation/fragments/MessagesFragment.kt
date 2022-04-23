@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.paragramm.mobile_paragramm.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.paragramm.mobile_paragramm.data.model.Message
 import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationDetailsViewModel
 import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationDetailsViewModelFactory
-import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.MessageAdapter
 import kotlin.properties.Delegates
+
+import androidx.recyclerview.widget.RecyclerView
+import com.paragramm.mobile_paragramm.R
+import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.MessageRecyclerAdapter
+
 
 class MessagesFragment : Fragment() {
 
@@ -40,14 +43,17 @@ class MessagesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val data = mutableListOf<Message>()
-        val adapter =
-            MessageAdapter(activity!!.applicationContext, R.layout.adapter_message_layout, data)
-        val messagesView = view.findViewById<ListView>(R.id.messages)
-        messagesView?.adapter = adapter
+        val messageAdapter = MessageRecyclerAdapter(data)
+
+        (view.findViewById(R.id.recycler_messages) as RecyclerView).apply {
+            layoutManager = LinearLayoutManager(view.context)
+            adapter = messageAdapter
+        }
 
         conversationDetailsViewModel._conversation.observe(this) { newData ->
             data.addAll(newData.messages)
-            adapter.notifyDataSetChanged()
+            //TODO: inefficient
+            messageAdapter.notifyDataSetChanged()
         }
     }
 

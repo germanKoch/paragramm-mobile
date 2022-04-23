@@ -14,7 +14,7 @@ class Migrations {
 
         val create_message_table_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("CREATE TABLE 'message' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'conversationId' INTEGER NOT NULL, 'sender' TEXT NOT NULL, 'text' TEXT NOT NULL);")
+                database.execSQL("CREATE TABLE 'message' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'conversationId' INTEGER NOT NULL, 'senderId' INTEGER NOT NULL, 'text' TEXT NOT NULL);")
             }
         }
     }
