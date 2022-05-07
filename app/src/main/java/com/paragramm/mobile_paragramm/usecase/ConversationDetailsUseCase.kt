@@ -1,21 +1,22 @@
 package com.paragramm.mobile_paragramm.usecase
 
-import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import com.paragramm.mobile_paragramm.ParagrammApplication
-import com.paragramm.mobile_paragramm.data.model.ConversationWithMessage
 import com.paragramm.mobile_paragramm.data.model.Message
 import com.paragramm.mobile_paragramm.data.repository.database.ParagrammDatabase
+import java.time.ZonedDateTime
+import kotlin.concurrent.thread
 
 class ConversationDetailsUseCase {
 
     private val db = ParagrammDatabase.getDatabase(ParagrammApplication.context)
 
-    suspend fun save(message: Message) {
-        db.conversationDao().insertAll(message)
+    fun save(message: Message) {
+        db.messageDao().insertAll(mutableListOf(message))
     }
 
-    fun getById(id: Long, userId: Long): LiveData<ConversationWithMessage> {
-        return db.conversationDao().getById(id)
+    fun getMessagesPaged(conversationId: Long): PagingSource<Int, Message> {
+        return db.messageDao().getMessagesPaged(conversationId)
     }
 
 }

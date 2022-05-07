@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.replace
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.ExperimentalPagingApi
 import com.paragramm.mobile_paragramm.R
 import com.paragramm.mobile_paragramm.data.model.Conversation
 import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationsViewModel
@@ -17,6 +18,7 @@ import com.paragramm.mobile_paragramm.presentation.conversation.component.Conver
 import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.ConversationAdapter
 import kotlin.properties.Delegates
 
+@ExperimentalPagingApi
 class ConversationsFragment : Fragment() {
 
     private var conversationsViewModel by Delegates.notNull<ConversationsViewModel>()
@@ -40,7 +42,8 @@ class ConversationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val data = mutableListOf<Conversation>()
-        val adapter = ConversationAdapter(activity!!.applicationContext, R.layout.conversation_layout, data)
+        val adapter =
+            ConversationAdapter(activity!!.applicationContext, R.layout.conversation_layout, data)
         view.findViewById<ListView>(R.id.conversations_list).apply {
             this.adapter = adapter
             this.setOnItemClickListener { adapter, view, position, id ->

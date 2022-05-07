@@ -6,20 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.paragramm.mobile_paragramm.data.model.Message
-import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationDetailsViewModel
-import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationDetailsViewModelFactory
-import kotlin.properties.Delegates
-
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.RecyclerView
 import com.paragramm.mobile_paragramm.R
-import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.MessageRecyclerAdapter
+import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationDetailsViewModelFactory
+import com.paragramm.mobile_paragramm.presentation.conversation.component.MessagesViewModel
+import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.MessagePagedAdapter
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import kotlin.properties.Delegates
 
-
+@ExperimentalPagingApi
 class MessagesFragment : Fragment() {
 
-    private var conversationDetailsViewModel by Delegates.notNull<ConversationDetailsViewModel>()
+    private var conversationDetailsViewModel by Delegates.notNull<MessagesViewModel>()
     private var conversationId by Delegates.notNull<Long>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +30,7 @@ class MessagesFragment : Fragment() {
             conversationDetailsViewModel = ViewModelProvider(
                 activity!!,
                 ConversationDetailsViewModelFactory(conversationId)
-            ).get(ConversationDetailsViewModel::class.java)
+            ).get(MessagesViewModel::class.java)
         }
     }
 
@@ -42,18 +43,16 @@ class MessagesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val data = mutableListOf<Message>()
-        val messageAdapter = MessageRecyclerAdapter(data)
+        val messageAdapter = MessagePagedAdapter()
 
         (view.findViewById(R.id.recycler_messages) as RecyclerView).apply {
-            layoutManager = LinearLayoutManager(view.context)
             adapter = messageAdapter
         }
 
-        conversationDetailsViewModel._conversation.observe(this) { newData ->
-            data.addAll(newData.messages)
-            //TODO: inefficient
-            messageAdapter.notifyDataSetChanged()
+        lifecycleScope.launch {
+            conversationDetailsViewModel._messages.collectLatest {
+                messageAdapter.submitData(it)
+            }
         }
     }
 
