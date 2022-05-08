@@ -4,6 +4,11 @@ Atchitecture:
 - lifecycle extensions
 - data binding
 - add dependency injection dagger
+- logging
+
+RX:
+- migrate to 3
+- on error logging add
 
 DB:
 - troubles with migrations

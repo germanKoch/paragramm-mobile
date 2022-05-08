@@ -10,9 +10,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.RecyclerView
 import com.paragramm.mobile_paragramm.R
-import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationDetailsViewModelFactory
-import com.paragramm.mobile_paragramm.presentation.conversation.component.MessagesViewModel
-import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.MessagePagedAdapter
+import com.paragramm.mobile_paragramm.viewmodel.ConversationDetailsViewModelFactory
+import com.paragramm.mobile_paragramm.viewmodel.MessagesViewModel
+import com.paragramm.mobile_paragramm.presentation.adapter.MessagePagedAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates

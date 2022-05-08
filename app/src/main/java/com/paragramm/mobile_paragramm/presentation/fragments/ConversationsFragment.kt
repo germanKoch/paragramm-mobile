@@ -12,10 +12,10 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.ExperimentalPagingApi
 import com.paragramm.mobile_paragramm.R
-import com.paragramm.mobile_paragramm.data.model.Conversation
-import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationsViewModel
-import com.paragramm.mobile_paragramm.presentation.conversation.component.ConversationsViewModelFactory
-import com.paragramm.mobile_paragramm.presentation.conversation.component.adapter.ConversationAdapter
+import com.paragramm.mobile_paragramm.repository.model.Conversation
+import com.paragramm.mobile_paragramm.viewmodel.ConversationsViewModel
+import com.paragramm.mobile_paragramm.viewmodel.ConversationsViewModelFactory
+import com.paragramm.mobile_paragramm.presentation.adapter.ConversationAdapter
 import kotlin.properties.Delegates
 
 @ExperimentalPagingApi
