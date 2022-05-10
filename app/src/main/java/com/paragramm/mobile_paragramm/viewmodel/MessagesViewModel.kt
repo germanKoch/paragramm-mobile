@@ -5,9 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.paragramm.mobile_paragramm.repository.network.retrofit.AuthClient
-import com.paragramm.mobile_paragramm.repository.network.retrofit.MessagesClient
-import com.paragramm.mobile_paragramm.repository.network.retrofit.NetworkService
 import com.paragramm.mobile_paragramm.repository.database.ParagrammDatabase
 import com.paragramm.mobile_paragramm.viewmodel.mediator.MessageRemoteMediator
 
@@ -15,6 +12,7 @@ class MessagesViewModel constructor(
     conversationId: Long
 ) : ViewModel() {
 
+    //TODO: should be better
     private val db = ParagrammDatabase.getDatabase()
 
     @ExperimentalPagingApi
@@ -25,9 +23,9 @@ class MessagesViewModel constructor(
             enablePlaceholders = true,
             maxSize = 10000
         ),
-        remoteMediator = MessageRemoteMediator()
+        remoteMediator = MessageRemoteMediator(conversationId)
     ) {
-        db.messageDao().getMessagesPaged(conversationId)
+        db.messageDao().getMessages(conversationId)
     }.flow
 
 }

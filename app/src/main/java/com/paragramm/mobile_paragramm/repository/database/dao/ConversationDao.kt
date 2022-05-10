@@ -1,20 +1,17 @@
 package com.paragramm.mobile_paragramm.repository.database.dao
 
-import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.paging.PagingSource
+import androidx.room.*
 import com.paragramm.mobile_paragramm.repository.model.Conversation
 
 @Dao
 interface ConversationDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(conversations: MutableList<Conversation>)
 
-    @Query("SELECT * FROM conversation")
-    fun getAll(): LiveData<List<Conversation>>
+    @Query("SELECT * FROM conversation ORDER BY id")
+    fun getConversations(): PagingSource<Int, Conversation>
 
     @Delete
     fun delete(conversation: Conversation)

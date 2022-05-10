@@ -15,11 +15,9 @@ class ConversationNetworkRepositoryTest {
 
     @Test
     fun test1() {
-        val token =
-            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJtS28iLCJpYXQiOjE2NTIwMzIyMTAsImV4cCI6MTY1MjAzNTgxMH0.wXAkc-f1sQsfyyTgvRqffpFwH3lLwMt6GvDh8X_zBFI"
-        println(
-            NetworkService.client<ConversationClient>().getAllConversations(token).blockingFirst()
-        )
+        NetworkService.client<AuthClient>().auth(AuthRequest(LOGIN, PASSWORD)).subscribe {
+            print("test: ${it}")
+        }
     }
 
 

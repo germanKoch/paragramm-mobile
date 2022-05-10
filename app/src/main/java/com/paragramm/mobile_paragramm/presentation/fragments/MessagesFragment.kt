@@ -30,7 +30,7 @@ class MessagesFragment : Fragment() {
             conversationDetailsViewModel = ViewModelProvider(
                 activity!!,
                 ConversationDetailsViewModelFactory(conversationId)
-            ).get(MessagesViewModel::class.java)
+            )[MessagesViewModel::class.java]
         }
     }
 

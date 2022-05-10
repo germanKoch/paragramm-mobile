@@ -5,6 +5,7 @@ import com.paragramm.mobile_paragramm.config.PASSWORD
 import com.paragramm.mobile_paragramm.repository.exceptions.NetworkException
 import com.paragramm.mobile_paragramm.repository.model.Conversation
 import com.paragramm.mobile_paragramm.repository.network.resource.AuthRequest
+import com.paragramm.mobile_paragramm.repository.network.resource.AuthResponse
 import com.paragramm.mobile_paragramm.repository.network.retrofit.AuthClient
 import com.paragramm.mobile_paragramm.repository.network.retrofit.ConversationClient
 import com.paragramm.mobile_paragramm.repository.network.retrofit.NetworkService
@@ -16,14 +17,6 @@ import kotlin.properties.Delegates
 class NetworkAuthService {
 
     private val client: AuthClient = NetworkService.client()
-
-    fun test(): Observable<Response<MutableList<Conversation>>> {
-        val client = NetworkService.client<ConversationClient>()
-        return getToken().flatMap {
-            client.getAllConversations(it)
-        }
-    }
-
 
     fun <T> withAuth(request: (token: String) -> Observable<Response<T>>): Observable<T> {
         return getToken().flatMap {
@@ -42,9 +35,7 @@ class NetworkAuthService {
             } else {
                 throw NetworkException("Response status: ${response.code()}")
             }
-        }.subscribeOn(Schedulers.io()).map {
-            it!!
-        }
+        }.subscribeOn(Schedulers.io()).map { it!! }
     }
 
     private fun getToken(): Observable<String> {
@@ -52,12 +43,9 @@ class NetworkAuthService {
     }
 
     private fun refreshToken(): Observable<String> {
-        return client.auth(AuthRequest(LOGIN, PASSWORD)).doOnEach {
-            if (it.value == null || !it.value!!.isSuccessful || it.value!!.body() == null) {
-                throw NetworkException("Authorization exception")
-            }
-            token = it.value!!.body()!!.token
-        }.map { token }
+        return client.auth(AuthRequest(LOGIN, PASSWORD)).map {
+            it.body()!!.token
+        }
     }
 
     private fun isTokenExpired(response: Response<out Any?>): Boolean {
